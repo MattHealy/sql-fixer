@@ -58,6 +58,9 @@ $("#fix").click(function() {
         if (fixed.startsWith('Records:')) {
             return true;
         }
+        if (fixed.startsWith('Rows matched:')) {
+            return true;
+        }
         if (fixed.startsWith('Query OK')) {
             return true;
         }
