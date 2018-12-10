@@ -28,6 +28,8 @@
  </div>
  <div class="col-md-1">
     <button id="fix" class="btn btn-primary btn-lg">Fix</button>
+    <br /><br />
+    <button id="clear" class="btn btn-danger btn-lg">Clear</button>
  </div>
  <div class="col-md-5 col-md-offset-1">
     <div id="output"><code></code></div>
@@ -37,6 +39,11 @@
 </div>
 
 <script>
+
+$("#clear").click(function() {
+    $("#input").val("");
+    $("#output").html("");
+});
 
 $("#fix").click(function() {
 
