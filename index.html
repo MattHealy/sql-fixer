@@ -10,30 +10,30 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+
 </head>
 <body>
 <div class="container">
 <h1>SQL Fixer</h1>
 <div class="well">
 <div class="row">
- <div class="col-md-5">
-    <strong>In</strong>
- </div>
- <div class="col-md-5 col-md-offset-2">
-    <strong>Out</strong>
+ <div class="col-md-12">
+    <button id="fix" class="btn btn-primary btn-lg">Fix</button>
+    <button id="copy" class="btn btn-info btn-lg clipboard-copy" data-clipboard-target="#output" data-toggle="tooltip" title="Click to copy fixed code to clipboard">Copy</button>
+    <button id="clear" class="btn btn-danger btn-lg pull-right">Clear</button>
+    <hr />
  </div>
 </div>
 <div class="row">
- <div class="col-md-5">
-    <textarea id="input" rows="20" cols="60"></textarea>
+ <div class="col-md-12 col-lg-6">
+    <strong>In</strong><br />
+    <textarea id="input" rows="20" cols="65"></textarea>
  </div>
- <div class="col-md-1">
-    <button id="fix" class="btn btn-primary btn-lg">Fix</button>
-    <br /><br />
-    <button id="clear" class="btn btn-danger btn-lg">Clear</button>
- </div>
- <div class="col-md-5 col-md-offset-1">
-    <textarea id="output" rows="20" cols="60"></textarea>
+ <div class="col-md-12 col-lg-5 col-lg-offset-1">
+    <strong>Out</strong><br />
+    <textarea id="output" rows="20" cols="65"></textarea>
  </div>
 </div>
 </div>
@@ -72,6 +72,8 @@ $("#fix").click(function() {
     $("#output").val(output);
 
 });
+
+var clipboard = new ClipboardJS('#copy');
 
 </script>
 
