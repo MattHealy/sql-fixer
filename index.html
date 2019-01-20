@@ -33,7 +33,7 @@
     <button id="clear" class="btn btn-danger btn-lg">Clear</button>
  </div>
  <div class="col-md-5 col-md-offset-1">
-    <div id="output"><code></code></div>
+    <textarea id="output" rows="20" cols="60"></textarea>
  </div>
 </div>
 </div>
@@ -43,18 +43,18 @@
 
 $("#clear").click(function() {
     $("#input").val("");
-    $("#output").html("");
+    $("#output").val("");
 });
 
 $("#fix").click(function() {
 
-    $("#output").html("");
+    $("#output").val("");
 
     var lines = $('#input').val().split('\n');
     var output = '';
 
     $.each(lines, function() {
-        var fixed = this.replace('->', '').replace('mysql>', '');
+        var fixed = this.replace('->', '').replace('mysql>', '').replace(';', ';\n');
         if (fixed.startsWith('Records:')) {
             return true;
         }
@@ -65,11 +65,11 @@ $("#fix").click(function() {
             return true;
         }
         if (fixed) {
-        output += fixed += "<br />";
+            output += fixed += "\n";
         }
     });
 
-    $("#output").html("<code>" + output + "</code>");
+    $("#output").val(output);
 
 });
 
